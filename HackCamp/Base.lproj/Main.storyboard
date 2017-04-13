@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,15 +50,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-0S-K0o">
-                                <rect key="frame" x="168" y="286" width="39" height="30"/>
+                                <rect key="frame" x="16" y="489" width="349" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start!"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="0.23009417808219179" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5zb-LK-pD8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwv-iX-CHj">
-                                <rect key="frame" x="153" y="224" width="30" height="30"/>
+                                <rect key="frame" x="81" y="334" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29442116618156433" green="0.62029331922531128" blue="0.10481385141611099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="&lt;-"/>
@@ -66,8 +67,18 @@
                                     <action selector="leftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rWd-kH-CyK"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7f-yk-cGI">
+                                <rect key="frame" x="5" y="245" width="365" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="eBt-Ot-U8P"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vi-QA-MRC">
-                                <rect key="frame" x="191" y="224" width="30" height="30"/>
+                                <rect key="frame" x="211" y="334" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.29442116618156433" green="0.62029331922531128" blue="0.10481385141611099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="-&gt;"/>
@@ -82,6 +93,8 @@
                         <outlet property="ageLabel" destination="mPN-Wt-Jur" id="X67-h5-Tst"/>
                         <outlet property="nameLabel" destination="bPF-Xh-Hxc" id="QVQ-ug-dcV"/>
                         <outlet property="scoreLabel" destination="7tp-h7-JPP" id="HAd-qM-SF3"/>
+                        <outlet property="startButton" destination="3Zt-0S-K0o" id="GSB-wj-GKZ"/>
+                        <outlet property="textField" destination="K7f-yk-cGI" id="BZb-eX-4YZ"/>
                         <outlet property="timeLabel" destination="kWF-Ow-zE1" id="e47-LO-SnB"/>
                     </connections>
                 </viewController>
