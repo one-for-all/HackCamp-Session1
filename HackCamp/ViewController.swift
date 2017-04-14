@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         textField.delegate = self
+        textField.keyboardType = UIKeyboardType.default
         textField.placeholder = "Enter your name: "
         time = initialTime
         nameLabel.text = "Name: \(user.name)"
@@ -74,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             ageLabel.text = "Age: \(user.age)"
             return
         case 2:
-            if !isInt(string: textField.text!) {
+            if !isInt(string: textField.text!) || Int(textField.text!)! <= 0 {
                 textField.placeholder = "Invalid number. Enter the length of the game: "
                 textField.text = ""
                 return
@@ -83,6 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.text = "Alternatively hit left and right arrows to get points!"
             textFieldStatus = 3
             textField.isUserInteractionEnabled = false
+            textField.keyboardType = UIKeyboardType.default
             timeLabel.text = "Time: \(initialTime)"
             return
         default:
@@ -138,6 +140,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.isUserInteractionEnabled = true
             textField.placeholder = "Enter your name: "
             textField.text = ""
+            textField.keyboardType = UIKeyboardType.default
             user.score = 0
             scoreLabel.text = "Score: \(user.score)"
             time = initialTime
