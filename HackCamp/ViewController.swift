@@ -130,6 +130,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func startButton(_ sender: Any) {
+        endMessage.text = ""
         if !running {
             textFieldStatus = 3
             textField.text = "Alternatively hit left and right arrows to get points!"
@@ -165,7 +166,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
             let frequency: Float = Float(user.score)/Float(initialTime)
             timer.invalidate()
             running = false
-            endMessage.text = "Time's up! Your speed: \(frequency) times/sec. "
+            let formattedText = String(format: "Time's up! Your speed: %.1f hits/sec. ", frequency)
+            endMessage.text = formattedText
             startButton.setTitle("\(startButtonText)", for: [])
         }
     }
