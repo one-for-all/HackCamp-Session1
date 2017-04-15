@@ -17,6 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var startButton: UIButton!
     
+    let nameHeader = "NAME"
+    let ageHeader = "AGE"
+    let scoreHeader = "SCORE"
+    let timeHeader = "TIME"
+    let startButtonText = "START"
+    let startButtonResetText = "RESET"
+    
     
     var initialTime: Int = 10
     var user = User(name: "Sapien", age: 21)
@@ -34,11 +41,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.keyboardType = UIKeyboardType.default
         textField.placeholder = "Enter your name: "
         time = initialTime
-        nameLabel.text = "Name: \(user.name)"
-        ageLabel.text = "Age: \(user.age)"
-        scoreLabel.text = "Score: \(user.score)"
-        timeLabel.text = "Time: \(time)"
-        startButton.setTitle("Start", for: [])
+        nameLabel.text = "\(nameHeader): \(user.name)"
+        ageLabel.text = "\(ageHeader): \(user.age)"
+        scoreLabel.text = "\(scoreHeader): \(user.score)"
+        timeLabel.text = "\(timeHeader): \(time)"
+        startButton.setTitle("\(startButtonText)", for: [])
     }
     
     
@@ -59,7 +66,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.placeholder = "Enter your age: "
             textField.keyboardType = UIKeyboardType.numbersAndPunctuation
             textField.text = ""
-            nameLabel.text = "Name: \(user.name)"
+            nameLabel.text = "\(nameHeader): \(user.name)"
             return
         case 1:
 
@@ -72,7 +79,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textFieldStatus = 2
             textField.placeholder = "Enter the length of the game: "
             textField.text = ""
-            ageLabel.text = "Age: \(user.age)"
+            ageLabel.text = "\(ageHeader): \(user.age)"
             return
         case 2:
             if !isInt(string: textField.text!) || Int(textField.text!)! <= 0 {
@@ -85,7 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textFieldStatus = 3
             textField.isUserInteractionEnabled = false
             textField.keyboardType = UIKeyboardType.default
-            timeLabel.text = "Time: \(initialTime)"
+            timeLabel.text = "\(timeHeader): \(initialTime)"
             return
         default:
             break
@@ -105,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
                 user.score = 0
             }
             lastHit = "l"
-            scoreLabel.text = "Score: \(user.score)"
+            scoreLabel.text = "\(scoreHeader): \(user.score)"
         }
     }
     
@@ -118,7 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
                 user.score = 0
             }
             lastHit = "r"
-            scoreLabel.text = "Score: \(user.score)"
+            scoreLabel.text = "\(scoreHeader): \(user.score)"
         }
     }
     
@@ -128,12 +135,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.text = "Alternatively hit left and right arrows to get points!"
             textField.isUserInteractionEnabled = false
             user.score = 0
-            scoreLabel.text = "Score: \(user.score)"
+            scoreLabel.text = "\(scoreHeader): \(user.score)"
             time = initialTime
-            timeLabel.text = "Time: \(time)"
+            timeLabel.text = "\(timeHeader): \(time)"
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             running = true
-            startButton.setTitle("Reset", for: [])
+            startButton.setTitle("\(startButtonResetText)", for: [])
         }
         else {
             textFieldStatus = 0
@@ -142,22 +149,22 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.text = ""
             textField.keyboardType = UIKeyboardType.default
             user.score = 0
-            scoreLabel.text = "Score: \(user.score)"
+            scoreLabel.text = "\(scoreHeader): \(user.score)"
             time = initialTime
-            timeLabel.text = "Time: \(time)"
+            timeLabel.text = "\(timeHeader): \(time)"
             timer.invalidate()
-            startButton.setTitle("Start", for: [])
+            startButton.setTitle("\(startButtonText)", for: [])
             running = false
         }
     }
     
     func timerAction() {
         time -= 1
-        timeLabel.text = "Time: \(time)"
+        timeLabel.text = "\(timeHeader): \(time)"
         if time == 0{
             timer.invalidate()
             running = false
-            startButton.setTitle("Start", for: [])
+            startButton.setTitle("\(startButtonText)", for: [])
         }
     }
     
