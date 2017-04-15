@@ -16,14 +16,18 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var endMessage: UILabel!
-
+    
+<<<<<<< HEAD
     let nameHeader = "NAME"
     let ageHeader = "AGE"
     let scoreHeader = "SCORE"
     let timeHeader = "TIME"
     let startButtonText = "START"
     let startButtonResetText = "RESET"
+    
+=======
+    @IBOutlet weak var endMessage: UILabel!
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
     
     var initialTime: Int = 10
     var user = User(name: "Sapien", age: 21)
@@ -41,11 +45,19 @@ class ViewController: UIViewController, UITextFieldDelegate{
         textField.keyboardType = UIKeyboardType.default
         textField.placeholder = "Enter your name: "
         time = initialTime
+<<<<<<< HEAD
         nameLabel.text = "\(nameHeader): \(user.name)"
         ageLabel.text = "\(ageHeader): \(user.age)"
         scoreLabel.text = "\(scoreHeader): \(user.score)"
         timeLabel.text = "\(timeHeader): \(time)"
         startButton.setTitle("\(startButtonText)", for: [])
+=======
+        nameLabel.text = "NAME: \(user.name)"
+        ageLabel.text = "AGE: \(user.age)"
+        scoreLabel.text = "SCORE: \(user.score)"
+        timeLabel.text = "TIME: \(time)"
+        startButton.setTitle("Start", for: [])
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
     }
     
     
@@ -66,7 +78,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.placeholder = "Enter your age: "
             textField.keyboardType = UIKeyboardType.numbersAndPunctuation
             textField.text = ""
+<<<<<<< HEAD
             nameLabel.text = "\(nameHeader): \(user.name)"
+=======
+            nameLabel.text = "NAME: \(user.name)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
             return
         case 1:
 
@@ -79,7 +95,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textFieldStatus = 2
             textField.placeholder = "Enter the length of the game: "
             textField.text = ""
+<<<<<<< HEAD
             ageLabel.text = "\(ageHeader): \(user.age)"
+=======
+            ageLabel.text = "AGE: \(user.age)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
             return
         case 2:
             if !isInt(string: textField.text!) || Int(textField.text!)! <= 0 {
@@ -92,7 +112,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textFieldStatus = 3
             textField.isUserInteractionEnabled = false
             textField.keyboardType = UIKeyboardType.default
+<<<<<<< HEAD
             timeLabel.text = "\(timeHeader): \(initialTime)"
+=======
+            timeLabel.text = "TIME: \(initialTime)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
             return
         default:
             break
@@ -112,7 +136,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
                 user.score = 0
             }
             lastHit = "l"
+<<<<<<< HEAD
             scoreLabel.text = "\(scoreHeader): \(user.score)"
+=======
+            scoreLabel.text = "SCORE: \(user.score)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
         }
     }
     
@@ -125,7 +153,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
                 user.score = 0
             }
             lastHit = "r"
+<<<<<<< HEAD
             scoreLabel.text = "\(scoreHeader): \(user.score)"
+=======
+            scoreLabel.text = "SCORE: \(user.score)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
         }
     }
     
@@ -135,12 +167,21 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.text = "Alternatively hit left and right arrows to get points!"
             textField.isUserInteractionEnabled = false
             user.score = 0
+<<<<<<< HEAD
             scoreLabel.text = "\(scoreHeader): \(user.score)"
             time = initialTime
             timeLabel.text = "\(timeHeader): \(time)"
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             running = true
             startButton.setTitle("\(startButtonResetText)", for: [])
+=======
+            scoreLabel.text = "SCORE: \(user.score)"
+            time = initialTime
+            timeLabel.text = "TIME: \(time)"
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            running = true
+            startButton.setTitle("RESET", for: [])
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
         }
         else {
             textFieldStatus = 0
@@ -149,24 +190,40 @@ class ViewController: UIViewController, UITextFieldDelegate{
             textField.text = ""
             textField.keyboardType = UIKeyboardType.default
             user.score = 0
+<<<<<<< HEAD
             scoreLabel.text = "\(scoreHeader): \(user.score)"
             time = initialTime
             timeLabel.text = "\(timeHeader): \(time)"
             timer.invalidate()
             startButton.setTitle("\(startButtonText)", for: [])
+=======
+            scoreLabel.text = "SCORE: \(user.score)"
+            time = initialTime
+            timeLabel.text = "TIME: \(time)"
+            timer.invalidate()
+            startButton.setTitle("START", for: [])
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
             running = false
         }
     }
     
     func timerAction() {
         time -= 1
+<<<<<<< HEAD
         timeLabel.text = "\(timeHeader): \(time)"
+=======
+        timeLabel.text = "TIME: \(time)"
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
         if time == 0{
             let frequency: Float = Float(user.score)/Float(initialTime)
             timer.invalidate()
             running = false
-            endMessage.text = "Time's up! Your speed: \(frequency) times/sec. "
+<<<<<<< HEAD
             startButton.setTitle("\(startButtonText)", for: [])
+=======
+            startButton.setTitle("START", for: [])
+            endMessage.text = "Time's up! Your speed: \(frequency) times/sec. "
+>>>>>>> 8df0e2aba18baccea883897be8843f56b499dc35
         }
     }
     
